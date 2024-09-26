@@ -2,6 +2,7 @@ const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
 const initRoutes = require("./src/Router");
+const connectDatabase = require("./src/config/connectDatabase");
 
 const app = express();
 app.use(
@@ -15,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 initRoutes(app);
-// connectDatabase();
+connectDatabase();
 
 // app.use("/", (req, res) => {
 //   res.send("Sever on ...");
