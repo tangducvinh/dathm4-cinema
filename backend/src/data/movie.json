@@ -1,0 +1,127 @@
+[
+  {
+    "backDrop": "https://cdn.galaxycine.vn/media/2024/8/13/transformers-750_1723544376869.jpg",
+    "poster": "https://cdn.galaxycine.vn/media/2024/8/13/transformers-500_1723544375976.jpg",
+    "title": { "name": "Transformers Một", "old": "T13" },
+    "date": { "timer": "104 Phút", "releaseDay": "27/09/2024" },
+    "vote": "8.4",
+    "country": "Mỹ",
+    "introducer": "Paramount Pictures",
+    "types": ["Hành Động", "Hoạt Hình", "Phiêu Lưu"],
+    "actor": [
+      "Chris Hemsworth",
+      "Scarlett Johansson",
+      "Keegan-Michael Key",
+      "Jon Hamm",
+      "Brian Tyree Henry"
+    ],
+    "director": ["Josh Cooley"],
+    "content": {}
+  },
+  {
+    "backDrop": "https://cdn.galaxycine.vn/media/2024/9/25/minh-hon-750_1727247760487.jpg",
+    "poster": "https://cdn.galaxycine.vn/media/2024/9/25/minh-hon-500_1727247759754.jpg",
+    "title": { "name": "Minh Hôn", "old": "T18" },
+    "date": { "timer": "92 Phút", "releaseDay": "26/09/2024" },
+    "vote": "7.0",
+    "country": "Hàn Quốc",
+    "types": ["Kinh Dị"],
+    "actor": ["Kong Jeong Hwan", "Ji Dae Han"],
+    "director": ["Lee Se Won"],
+    "content": {
+      "description": " diễn ra sau khi mất vợ và con gái, Won Go Myeong – một pháp sư đầy hận thù, đã phát hiện ra gã tài phiệt đứng sau cái chết gia đình ông. Với ma thuật đen, Go Myeong đã gọi hồn, triệu vong vạch trần sự thật và khiến gã tài phiệt đền mạng. Thế nhưng, mọi chuyện chỉ là khởi đầu…."
+    }
+  },
+  {
+    "backDrop": "https://cdn.galaxycine.vn/media/2024/9/18/do-anh-cong-duoc-toi-750_1726635603420.jpg",
+    "poster": "https://cdn.galaxycine.vn/media/2024/9/18/do-anh-cong-duoc-toi-500_1726635602912.jpg",
+    "title": { "name": "Đố Anh Còng Được Tôi", "old": "T18" },
+    "date": { "timer": "118 Phút", "releaseDay": "26/09/2024" },
+    "vote": "8.6",
+    "country": "Hàn Quốc",
+    "introducer": "CJ Entertainment",
+    "types": ["Hành Động", "Hài"],
+    "actor": ["Hwang Jung Min", "Jung Hae In"],
+    "director": ["Seung-Wan Ryoo"],
+    "content": {
+      "description": "Các thanh tra kỳ cựu nổi tiếng đã hoạt động trở lại!"
+    }
+  },
+  {
+    "backDrop": "https://cdn.galaxycine.vn/media/2024/9/17/it-end-with-us-750_1726546372078.jpg",
+    "poster": "https://cdn.galaxycine.vn/media/2024/9/17/it-end-with-us-500_1726546372835.jpg",
+    "title": { "name": "Nơi Tình Yêu Kết Thúc", "old": "T16" },
+    "date": { "timer": "130 Phút", "releaseDay": "27/09/2024" },
+    "vote": "8.4",
+    "country": "Mỹ",
+    "introducer": "Sony Pictures Releasing",
+    "types": ["Lãng Mạn", "Tâm Lý"],
+    "actor": ["Blake Lively", "Jenny Slate", "Justin Baldoni"],
+    "director": ["Justin Baldoni"],
+    "content": {
+      "description": "Chuyện phim theo chân Lily Bloom (Blake Lively) bắt đầu cuộc sống mới và theo đuổi giấc mơ khởi nghiệp tại thành phố Boston. Tại đây, cô nàng tình cờ gặp gỡ và phải lòng bác sĩ phẫu thuật nội trú tài ba Ryle Kincaid (Justin Baldoni). Cả hai yêu nhau sâu đậm và tiến tới kết hôn."
+    }
+  },
+  {
+    "backDrop": "https://cdn.galaxycine.vn/media/2024/9/9/cam-750_1725872473760.jpg",
+    "poster": "https://cdn.galaxycine.vn/media/2024/9/9/cam-500_1725872473264.jpg",
+    "title": { "name": "Cám", "old": "T18" },
+    "date": { "timer": "122 Phút", "releaseDay": "19/09/2024" },
+    "vote": "7.2",
+    "country": "Việt Nam",
+    "introducer": "Production Q",
+    "types": ["Kinh Dị", "Giả Tưởng"],
+    "actor": [
+      "Quốc Cường",
+      "Thúy Diễm",
+      "Rima Thanh Vy",
+      "Lâm Thanh Mỹ",
+      "Hải Nam"
+    ],
+    "director": ["Trần Hữu Tấn"],
+    "content": {}
+  },
+  {
+    "backDrop": "https://cdn.galaxycine.vn/media/2024/9/17/cau-be-ca-heo-750_1726543861733.jpg",
+    "poster": "https://cdn.galaxycine.vn/media/2024/9/24/cau-be-ca-heo-500_1727148900131.jpg",
+    "title": { "name": "Cậu Bé Cá Heo" },
+    "date": { "timer": "85 Phút", "releaseDay": "27/09/2024" },
+    "vote": "7.0",
+    "country": "Iran",
+    "introducer": "Sky Frame",
+    "types": ["Hoạt Hình", "Gia Đình"],
+    "actor": ["Polina Avdeenko", "Yuliya Rudina", "Boris Khasanov"],
+    "director": ["Mohammad Kheyrandish"],
+    "content": {}
+  },
+  {
+    "backDrop": "https://cdn.galaxycine.vn/media/2024/9/12/look-back-2_1726128060640.jpg",
+    "poster": "https://cdn.galaxycine.vn/media/2024/9/12/look-back-1_1726128055113.jpg",
+    "title": { "name": "Look Back: Liệu Ta Có Dám Nhìn Lại?", "old": "T13" },
+    "date": { "timer": "58 Phút", "releaseDay": "20/09/2024" },
+    "vote": "8.9",
+    "country": "Nhật Bản",
+    "introducer": "Studio Dorian",
+    "types": ["Hoạt Hình"],
+    "actor": ["Kawai Yuumi", "Yoshida Mizuki"],
+    "director": ["Oshiyama Kiyotaka"],
+    "content": {
+      "description": "xoay quanh hai cô bé Fujino và Kyomoto với niềm đam mê cháy bỏng dành cho truyện tranh. Vượt qua hiểu lầm buổi đầu, Fujino và Kyomoto trở thành bạn thân, cộng sự tuyệt vời và cùng nhau tạo nên một tác phẩm đáng nhớ."
+    }
+  },
+  {
+    "backDrop": "https://cdn.galaxycine.vn/media/2024/9/5/anh-trai-vuot-moi-tam-tai-750_1725506328442.jpg",
+    "poster": "https://cdn.galaxycine.vn/media/2024/9/5/anh-trai-vuot-moi-tam-tai-500_1725506328067.jpg",
+    "title": { "name": "Anh Trai Vượt Mọi Tam Tai", "old": "T16" },
+    "date": { "timer": "96 Phút", "releaseDay": "13/09/2024" },
+    "vote": "7.4",
+    "country": "Hàn Quốc",
+    "introducer": "Contents G",
+    "types": ["Hài", "Hành Động"],
+    "actor": ["Park Sung Woong", "Kwak Si Yang", "Yoon Kyung Ho"],
+    "director": ["Kim Jae Hoon"],
+    "content": {
+      "description": " kể về Cho Su-gwang là một thanh tra cực kỳ nóng tính, dù có tỷ lệ bắt giữ tội phạm ấn tượng nhưng anh luôn gặp khó khăn trong việc kiểm soát cơn giận của mình. Vì liên tục tấn công các nghi phạm, Cho Su-gwang bị chuyển đến đảo Jeju. Tại đây, vị thanh tra nhận nhiệm vụ truy bắt kẻ lừa đảo giỏi nhất Hàn Quốc - Kim In-hae với 7 tiền án, nổi tiếng thông minh và có khả năng “thiên biến vạn hoá” để ngụy trang hoàn hảo mọi nhân dạng. Cùng lúc đó, Kim In-hae bất ngờ dính vào vụ án mạng nghiêm trọng có liên quan đến tên trùm xã hội đen đang nhăm nhe “thôn tính” đảo Jeju. Trước tình hình nguy cấp phải “giải cứu” hòn đảo Jeju và triệt phá đường dây nguy hiểm của tên trùm xã hội đen, thanh tra Cho Su-gwang bất đắc dĩ phải hợp tác cùng nghi phạm Kim In-hae, tận dụng triệt để các kỹ năng từ phá án đến lừa đảo trên hành trình rượt đuổi vừa gay cấn vừa hài hước để có thể hoàn thành nhiệm vụ cam go."
+    }
+  }
+]

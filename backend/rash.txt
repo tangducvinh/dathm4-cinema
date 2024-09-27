@@ -1,0 +1,19 @@
+
+Chèn thành phố
+INSERT INTO cities (id, name, createdAt, updatedAt) VALUES ("43", "Đà Nẵng", current_timestamp, current_timestamp);
+INSERT INTO cities (id, name, createdAt, updatedAt) VALUES ("51", "Hồ Chí Minh", current_timestamp, current_timestamp);
+INSERT INTO cities (id, name, createdAt, updatedAt) VALUES ("30", "Hà nội", current_timestamp, current_timestamp);
+
+Chèn rạp
+INSERT INTO cinemas (id, name,total,idCity ,createdAt, updatedAt) VALUES ("1", "Galaxy", ,"43", current_timestamp, current_timestamp);
+INSERT INTO cinemas (id, name,total,idCity ,createdAt, updatedAt) VALUES ("2", "Starlight","" ,"51", current_timestamp, current_timestamp);
+INSERT INTO cinemas (id, name,total,idCity ,createdAt, updatedAt) VALUES ("3", "CGV", "","30", current_timestamp, current_timestamp);
+
+Chèn sảnh rạp
+INSERT INTO cinemahalls (id, name,idCinema,col,row ,createdAt, updatedAt) VALUES ("CH1", "Rạp 1","1",10,10, current_timestamp, current_timestamp);
+INSERT INTO cinemahalls (id, name,idCinema,col,row ,createdAt, updatedAt) VALUES ("CH2", "Rạp 2","1",10,15, current_timestamp, current_timestamp);
+INSERT INTO cinemahalls (id, name,idCinema,col,row ,createdAt, updatedAt) VALUES ("CH3", "Rạp 3","1",10,20, current_timestamp, current_timestamp);
+
+Chèn show
+
+INSERT INTO shows (id, date ,timeStart,timeEnd,idMovie,idCinemaHall ,createdAt, updatedAt) VALUES ("SH01","2024-09-27","2024-09-2719:16:36","2024-09-2721:16:36", "4a6daba5-f82b-4973-8b07-f1a913248aae","CH1", current_timestamp, current_timestamp);

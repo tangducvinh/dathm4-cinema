@@ -14,8 +14,14 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-      description: {
+      trailer: {
         type: Sequelize.STRING,
+      },
+      old: {
+        type: Sequelize.STRING,
+      },
+      description: {
+        type: Sequelize.TEXT,
       },
       introducer: {
         type: Sequelize.STRING,
@@ -26,20 +32,12 @@ module.exports = {
       backDrop: {
         type: Sequelize.STRING,
       },
-      idType: {
-        type: Sequelize.STRING,
-      },
-      idActor: {
-        type: Sequelize.STRING,
-      },
-      idDirector: {
-        type: Sequelize.STRING,
-      },
+
       rating: {
         type: Sequelize.STRING,
       },
       releaseYear: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
       },
       time: {
         type: Sequelize.STRING,

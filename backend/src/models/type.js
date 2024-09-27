@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Type.hasMany(models.TypeMovie, {
+        foreignKey: "idType",
+        as: "types",
+      });
     }
   }
   Type.init(

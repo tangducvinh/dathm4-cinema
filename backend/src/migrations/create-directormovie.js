@@ -3,6 +3,9 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("DirectorMovies", {
+      id: {
+        type: Sequelize.STRING,
+      },
       idMovie: {
         type: Sequelize.STRING,
       },

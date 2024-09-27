@@ -9,23 +9,38 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Movie.hasMany(models.TypeMovie, {
+        foreignKey: "idMovie",
+        as: "movietypes",
+      });
+      Movie.hasMany(models.DirectorMovie, {
+        foreignKey: "idMovie",
+        as: "moviedirectors",
+      });
+      Movie.hasMany(models.ActorMovie, {
+        foreignKey: "idMovie",
+        as: "movieactors",
+      });
+      Movie.hasMany(models.Show, {
+        foreignKey: "idMovie",
+        as: "movieshows",
+      });
     }
   }
   Movie.init(
     {
       idCategory: DataTypes.INTEGER,
       name: DataTypes.STRING,
-      description: DataTypes.STRING,
+      description: DataTypes.TEXT,
       introducer: DataTypes.STRING,
+      trailer: DataTypes.STRING,
       poster: DataTypes.STRING,
       backDrop: DataTypes.STRING,
-      idType: DataTypes.STRING,
-      idActor: DataTypes.STRING,
-      idDirector: DataTypes.STRING,
       rating: DataTypes.STRING,
-      releaseYear: DataTypes.STRING,
+      releaseYear: DataTypes.DATE,
       time: DataTypes.STRING,
       country: DataTypes.STRING,
+      old: DataTypes.STRING,
     },
     {
       sequelize,
