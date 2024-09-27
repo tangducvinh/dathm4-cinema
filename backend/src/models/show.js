@@ -13,9 +13,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Show.init(
     {
-      date: DataTypes.DATETIME,
-      timeStart: DataTypes.DATETIME,
-      timeEnd: DataTypes.DATETIME,
+      date: DataTypes.DATE,
+      timeStart: DataTypes.DATE,
+      timeEnd: DataTypes.DATE,
       idMovie: DataTypes.STRING,
       idCinemaHall: DataTypes.STRING,
     },

@@ -9,10 +9,10 @@ module.exports = {
         type: Sequelize.STRING,
       },
       date: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
       },
       numberOfSeats: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       status: {
         type: Sequelize.STRING,
