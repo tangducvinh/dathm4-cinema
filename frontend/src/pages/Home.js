@@ -1,15 +1,17 @@
-import Header from "../components/header/Header"
+import Outlet from 'react-router-dom'
 
 import Slide from '../components/home/Slide'
+import NavBar from "../components/home/NavBar"
+import IntroduceText from '../components/home/IntroduceText'
 
 const Home = () => {
     return (
         <div>
-            <Header />
-
             <Slide />
 
-            <p className="text-red-500">this is home's page</p>
+            <NavBar></NavBar>
+
+            <IntroduceText />
         </div>
     )
 }
