@@ -17,6 +17,9 @@ module.exports = {
       trailer: {
         type: Sequelize.STRING,
       },
+      slug: {
+        type: Sequelize.STRING,
+      },
       old: {
         type: Sequelize.STRING,
       },

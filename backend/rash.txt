@@ -1,4 +1,6 @@
-
+chèn categories
+INSERT INTO categories (id, title, status, createdAt, updatedAt) VALUES (1, "Đang chiếu","showing",current_timestamp, current_timestamp);
+INSERT INTO categories (id, title, status, createdAt, updatedAt) VALUES (2, "Sắp chiếu","soon",current_timestamp, current_timestamp);
 Chèn thành phố
 INSERT INTO cities (id, name, createdAt, updatedAt) VALUES ("43", "Đà Nẵng", current_timestamp, current_timestamp);
 INSERT INTO cities (id, name, createdAt, updatedAt) VALUES ("51", "Hồ Chí Minh", current_timestamp, current_timestamp);
@@ -16,4 +18,4 @@ INSERT INTO cinemahalls (id, name,idCinema,col,row ,createdAt, updatedAt) VALUES
 
 Chèn show
 
-INSERT INTO shows (id, date ,timeStart,timeEnd,idMovie,idCinemaHall ,createdAt, updatedAt) VALUES ("SH01","2024-09-27","2024-09-2719:16:36","2024-09-2721:16:36", "4a6daba5-f82b-4973-8b07-f1a913248aae","CH1", current_timestamp, current_timestamp);
+INSERT INTO shows (id, date ,timeStart,timeEnd,idMovie,idCinemaHall ,createdAt, updatedAt) VALUES ("SH02","2024-09-27","2024-09-27 13:16:36","2024-09-27 15:16:36", "7c440aee-6cf7-4f1d-8e60-cb5a72c4dc6b","CH1", current_timestamp, current_timestamp);

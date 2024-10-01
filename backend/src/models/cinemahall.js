@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       CinemaHall.belongsTo(models.Cinema, {
         foreignKey: "idCinema",
         targetKey: "id",
-        as: "cinemas",
+        as: "cinemahalls",
       });
       CinemaHall.hasMany(models.CinemaSeat, {
         foreignKey: "idCinemaHall",
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       });
       CinemaHall.hasMany(models.Show, {
         foreignKey: "idCinemaHall",
-        as: "cinemashows",
+        as: "cinemahallshows",
       });
     }
   }

@@ -25,6 +25,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "idMovie",
         as: "movieshows",
       });
+      Movie.belongsTo(models.Category, {
+        foreignKey: "idCategory",
+        targetKey: "id",
+        as: "categories",
+      });
     }
   }
   Movie.init(
@@ -34,6 +39,7 @@ module.exports = (sequelize, DataTypes) => {
       description: DataTypes.TEXT,
       introducer: DataTypes.STRING,
       trailer: DataTypes.STRING,
+      slug: DataTypes.STRING,
       poster: DataTypes.STRING,
       backDrop: DataTypes.STRING,
       rating: DataTypes.STRING,

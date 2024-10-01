@@ -1,8 +1,10 @@
 const db = require("../models");
 const bcrypt = require("bcrypt");
 const movie = require("../data/movie.json");
+const func = require("../utils/func");
 
 const dataBody = movie;
+import { where } from "sequelize";
 import { v4 } from "uuid";
 require("dotenv").config();
 const hashPassword = (password) =>
@@ -23,6 +25,8 @@ const hashPassword = (password) =>
 //           introducer: item?.introducer,
 //           poster: item?.poster,
 //           backDrop: item?.backDrop,
+//           trailer: "Zwa8Nrq3PJY",
+//           slug: func.formatVietnameseToString(item?.title?.name),
 //           rating: item?.vote,
 //           releaseYear: item?.date?.releaseDay,
 //           time: item?.date?.timer,
@@ -83,17 +87,47 @@ const hashPassword = (password) =>
 const insert = () => {
   return new Promise(async (resolve, reject) => {
     try {
-      for (var i = 1; i <= 10; i++) {
-        let seatId = v4();
-        await db.CinemaSeat.create({
-          id: seatId,
-          seatNumber: i < 10 ? "C0" + i : "C" + i,
-          type: "normal",
-          idCinemaHall: "CH1",
-        });
-      }
+      // for (var i = 1; i <= 10; i++) {
+      //   let seatId = v4();
+      //   await db.CinemaSeat.create({
+      //     id: seatId,
+      //     seatNumber: i < 10 ? "C0" + i : "C" + i,
+      //     type: "normal",
+      //     idCinemaHall: "CH1",
+      //   });
+      // }
 
-      resolve("Done");
+      // for (var i = 1; i <= 10; i++) {
+      //   let seatId = v4();
+      //   await db.ShowSeat.create({
+      //     id: seatId,
+      //     seatNumber: i < 10 ? "C0" + i : "C" + i,
+      //     type: "normal",
+      //     idCinemaHall: "CH1",
+      //   });
+      // }
+
+      const res = await db.CinemaSeat.findAll({
+        raw: true,
+        where: {
+          idCinemaHall: "CH1",
+        },
+        order: [["seatNumber", "ASC"]],
+      });
+      // console.log("res ", res);
+
+      res.map(async (item) => {
+        let seatId = v4();
+        await db.ShowSeat.create({
+          id: seatId,
+          status: "no",
+          price: 50000,
+          idCinemaSeat: item.id,
+          idShow: "SH02",
+        });
+      });
+
+      resolve("done");
     } catch (error) {
       reject(error);
     }

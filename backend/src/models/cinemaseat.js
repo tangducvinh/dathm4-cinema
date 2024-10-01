@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
         targetKey: "id",
         as: "cinemahallseats",
       });
+      CinemaSeat.hasMany(models.ShowSeat, {
+        foreignKey: "idCinemaSeat",
+        as: "cinemaseats",
+      });
     }
   }
   CinemaSeat.init(

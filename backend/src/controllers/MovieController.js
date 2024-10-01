@@ -2,7 +2,8 @@ const MovieService = require("../services/MovieService");
 
 const getAllMovie = async (req, res) => {
   try {
-    const response = await MovieService.getAllMovie();
+    const { list } = req.params;
+    const response = await MovieService.getAllMovie(list);
     return res.status(200).json(response);
   } catch (error) {
     return res.status(404).json({

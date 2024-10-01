@@ -11,20 +11,20 @@ const getAllShow = async (req, res) => {
   }
 };
 
-// const getDetailMovie = async (req, res) => {
-//   try {
-//     const { mid } = req.params;
+const getDetailShow = async (req, res) => {
+  try {
+    const { sid } = req.params;
+    const response = await ShowService.getDetailShow(sid);
 
-//     console.log("mid ", mid);
-//     const response = await MovieService.getDetailMovie(mid);
-//     return res.status(200).json(response);
-//   } catch (error) {
-//     return res.status(404).json({
-//       msg: "Error in controller : " + error,
-//     });
-//   }
-// };
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(404).json({
+      msg: "Error in controller : " + error,
+    });
+  }
+};
 
 module.exports = {
   getAllShow,
+  getDetailShow,
 };

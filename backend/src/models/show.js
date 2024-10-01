@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       Show.belongsTo(models.CinemaHall, {
         foreignKey: "idCinemaHall",
         targetKey: "id",
-        as: "cinemashows",
+        as: "cinemahallshows",
       });
     }
   }
