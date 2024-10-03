@@ -7,17 +7,15 @@ const ShowingMovie = ({ data }) => {
       <MenuTitle title="PHIM ĐANG CHIẾU" />
 
       {data
-        .filter((movie, index) => index < 3)
-        .map((item) => (
+        ?.filter((movie, index) => index < 3)
+        ?.map((item) => (
           <MovieItemBig
             key={item.id}
-            backdrop={item.backdrop}
+            backdrop={item.backDrop}
             slug={item.slug}
             name={item.name}
           />
         ))}
-
-      
     </div>
   );
 };

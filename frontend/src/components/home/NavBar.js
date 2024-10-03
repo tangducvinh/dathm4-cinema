@@ -1,10 +1,9 @@
-
 import { useState, useEffect } from "react";
 import clsx from "clsx";
 
 import MovieContainer from "./MovieContainer";
 import MenuTitle from "./MenuTitle";
-import { getListMovie } from '../../apis/apiMovie'
+import { getListMovie } from "../../apis/apiMovie";
 
 const titleList = [
   {
@@ -21,23 +20,19 @@ const titleList = [
   // },
 ];
 
-
-
 const NavBar = () => {
-  const [currentStatus, setCurrentStatus] = useState(
-    titleList[0].value
-  );
-  const [movies, setMovies] = useState()
+  const [currentStatus, setCurrentStatus] = useState(titleList[0].value);
+  const [movies, setMovies] = useState();
 
   useEffect(() => {
-    const fecthGetListMovie = async() => {
-      const movies = await getListMovie(currentStatus)
+    const fetchGetListMovie = async () => {
+      const movies = await getListMovie(currentStatus);
 
-      setMovies(movies.data)
-    }
+      setMovies(movies.data);
+    };
 
-    fecthGetListMovie()
-  }, [currentStatus])
+    fetchGetListMovie();
+  }, [currentStatus]);
 
   return (
     <div className="w-main mx-auto mt-10">
@@ -66,9 +61,7 @@ const NavBar = () => {
         </ul>
       </div>
 
-      <MovieContainer
-        data={movies}
-      />
+      <MovieContainer data={movies} />
     </div>
   );
 };

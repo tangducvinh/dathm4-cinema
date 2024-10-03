@@ -20,27 +20,27 @@ const dataKind = [
   },
 ];
 
-const InforMovie = ({data}) => {
+const InforMovie = ({ data }) => {
   return (
     <div className="flex w-full">
       <img
         className="h-[400px] absolute rounded-sm mt-[-60px] object-contain border-[3px] border-white"
-        src={data.poster}
+        src={data?.poster}
         alt="poster"
       ></img>
       <div className="flex flex-3"></div>
 
       <div className="flex flex-col flex-7 ml-8 mt-[50px]">
-        <h2 className="text-black text-[30px] font-semibold">{data.name}</h2>
+        <h2 className="text-black text-[30px] font-semibold">{data?.name}</h2>
         <div className="flex item-center gap-4">
           <div className="flex items-center gap-1">
             <GoClock className="text-main" />
-            <span>{`${data.runtime} phút`}</span>
+            <span>{data?.time}</span>
           </div>
 
           <div className="flex items-center gap-1">
             <IoCalendarClearOutline className="text-main" />
-            <span>{moment(data.release).format("DD/MM/yyyy")}</span>
+            <span>{moment(data?.releaseYear).format("DD/MM/yyyy")}</span>
           </div>
         </div>
 
@@ -51,7 +51,7 @@ const InforMovie = ({data}) => {
 
         <div className="mt-2 text-[15px] text-[#777777]">
           Quốc gia:{" "}
-          <span className="ml-3 text-normal text-[16px]">{data.country}</span>
+          <span className="ml-3 text-normal text-[16px]">{data?.country}</span>
         </div>
         {/* <div className="mt-2 text-[15px] text-[#777777]">
           Nhà xuất bản:{" "}
@@ -59,34 +59,34 @@ const InforMovie = ({data}) => {
         </div> */}
 
         <div className="flex mt-2 gap-1 items-center">
-          <p className="w-[80px] text-[15px] text-[#777777]">Thể loại:</p>
-          {data.genres.map((item) => (
+          <p className="w-[80px] text-[14px] text-[#777777]">Thể loại:</p>
+          {data?.movietypes.map((item) => (
             <ButtonChoose
-              key={item.name}
-              title={item.name}
-              link={`/${item.slug}`}
+              key={item?.types?.name}
+              title={item?.types?.name}
+              // link={`/${item.slug}`}
             />
           ))}
         </div>
 
-        <div className="flex mt-2 gap-1 items-center">
-          <p className="w-[80px] text-[15px] text-[#777777]">Đạo diễn:</p>
-          {data.directors.map((item) => (
+        <div className="flex mt-2 gap-1 items-center flex-wrap">
+          <p className="w-[80px] text-[14px] text-[#777777]">Đạo diễn:</p>
+          {data?.moviedirectors.map((item) => (
             <ButtonChoose
-              key={item.name}
-              title={item.name}
-              link={`/${item.slug}`}
+              key={item.directors?.name}
+              title={item.directors?.name}
+              // link={`/${item.slug}`}
             />
           ))}
         </div>
 
-        <div className="flex mt-2 gap-1 items-center">
-          <p className="w-[80px] text-[15px] text-[#777777]">Diễn viên:</p>
-          {data.actors.map((item) => (
+        <div className="flex mt-2 gap-1 items-center flex-wrap">
+          <p className="w-[80px] text-[14px] text-[#777777]">Diễn viên:</p>
+          {data?.movieactors.map((item) => (
             <ButtonChoose
-              key={item.name}
-              title={item.name}
-              link={`/${item.slug}`}
+              key={item?.actors?.name}
+              title={item?.actors?.name}
+              // link={`/${item.slug}`}
             />
           ))}
         </div>
