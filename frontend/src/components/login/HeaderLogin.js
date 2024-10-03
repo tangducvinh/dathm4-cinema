@@ -1,8 +1,7 @@
 import { IoMdCloseCircle } from "react-icons/io";
-import logo from '../../assets/logo/logo-main.jpg'
+import logo from "../../assets/logo/logo-main.jpg";
 
-
-const HeaderLogin = ({onCloseLogin}) => {
+const HeaderLogin = ({ onCloseLogin }) => {
   return (
     <div>
       <button
@@ -11,11 +10,7 @@ const HeaderLogin = ({onCloseLogin}) => {
       >
         <IoMdCloseCircle size="30" color="gray" />
       </button>
-      <img
-        src={logo}
-        className="w-[100px] h-[100px] m-auto"
-        alt="avatar"
-      ></img>
+      <img src={logo} className="w-[100px] h-[100px] m-auto" alt="avatar"></img>
 
       <p className="text-[20px] text-normal mt-2 font-bold text-center">
         Đăng Nhập Tài Khoản
