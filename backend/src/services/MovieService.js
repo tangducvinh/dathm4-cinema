@@ -130,39 +130,39 @@ const getDetailMovie = (mid) => {
               },
             ],
           },
-          {
-            model: db.Show,
-            as: "movieshows",
-            attributes: [
-              "id",
-              "date",
-              "timeStart",
-              "timeEnd",
-              "idMovie",
-              "idCinemaHall",
-            ],
-            include: [
-              {
-                model: db.CinemaHall,
-                as: "cinemahallshows",
-                attributes: ["name", "idCinema"],
-                include: [
-                  {
-                    model: db.Cinema,
-                    as: "cinemas",
-                    attributes: ["name", "idCity"],
-                    include: [
-                      {
-                        model: db.City,
-                        as: "cities",
-                        attributes: ["name"],
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
+          // {
+          //   model: db.Show,
+          //   as: "movieshows",
+          //   attributes: [
+          //     "id",
+          //     "date",
+          //     "timeStart",
+          //     "timeEnd",
+          //     "idMovie",
+          //     "idCinemaHall",
+          //   ],
+          //   include: [
+          //     {
+          //       model: db.CinemaHall,
+          //       as: "cinemahallshows",
+          //       attributes: ["name", "idCinema"],
+          //       include: [
+          //         {
+          //           model: db.Cinema,
+          //           as: "cinemas",
+          //           attributes: ["name", "idCity"],
+          //           include: [
+          //             {
+          //               model: db.City,
+          //               as: "cities",
+          //               attributes: ["name"],
+          //             },
+          //           ],
+          //         },
+          //       ],
+          //     },
+          //   ],
+          // },
         ],
       });
 
