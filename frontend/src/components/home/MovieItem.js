@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { IoPlayCircleSharp } from "react-icons/io5";
 import clsx from "clsx";
+import { useNavigate, useNavigationType } from 'react-router-dom'
 
 import Trailer from "../common/Trailer";
 import ButtonBuy from "../common/ButtonBuy";
@@ -10,6 +11,7 @@ const MovieItem = ({name, poster, keyVideo, slug, size, hiddenTrailer}) => {
 
   const [isHover, setIsHover] = useState(false);
   const [watchTrailer, setWatchTrailer] = useState(false);
+  const navigate = useNavigate()
 
   const handleShowTrailer = useCallback(() => {
     setWatchTrailer((prev) => !prev);
@@ -18,6 +20,7 @@ const MovieItem = ({name, poster, keyVideo, slug, size, hiddenTrailer}) => {
   return (
     <div>
       <div
+        onClick={() => navigate(`/detail/${slug}`)}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
         className="relative cursor-pointer rounded-lg overflow-hidden"

@@ -76,7 +76,7 @@ const getDetailMovie = (mid) => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await db.Movie.findOne({
-        where: { id: mid },
+        where: { slug: mid },
         nest: true,
         attributes: [
           "id",

@@ -14,10 +14,9 @@ const getAllMovie = async (req, res) => {
 
 const getDetailMovie = async (req, res) => {
   try {
-    const { mid } = req.params;
+    const { slug } = req.params;
 
-    console.log("mid ", mid);
-    const response = await MovieService.getDetailMovie(mid);
+    const response = await MovieService.getDetailMovie(slug);
     return res.status(200).json(response);
   } catch (error) {
     return res.status(404).json({

@@ -4,6 +4,7 @@ import clsx from "clsx";
 
 import MovieContainer from "./MovieContainer";
 import MenuTitle from "./MenuTitle";
+import { getListMovie } from '../../apis/apiMovie'
 
 const titleList = [
   {
@@ -14,41 +15,29 @@ const titleList = [
     title: "Sắp chiếu",
     value: "soon",
   },
-  {
-    title: "Phim IMAX",
-    value: "imax",
-  },
+  // {
+  //   title: "Phim IMAX",
+  //   value: "imax",
+  // },
 ];
 
-const movies = [
-    {
-        video: '2DmOv-pM1bM',
-        name: 'Make rich with ghost',
-        poster: 'https://cdn.galaxycine.vn/media/2024/9/18/do-anh-cong-duoc-toi-500_1726635602912.jpg',
-        slug: 'kkk-dsfsdf-werer',
-        status: 'showing',
-    },
-    {
-        video: '2DmOv-pM1bM',
-        name: 'Make rich with ghost',
-        poster: 'https://cdn.galaxycine.vn/media/2024/8/13/transformers-500_1723544375976.jpg',
-        slug: 'kkk-dsfsdf-werer',
-        status: 'soon',
-    }, 
-    {
-        video: '2DmOv-pM1bM',
-        name: 'Make rich with ghost',
-        poster: 'https://cdn.galaxycine.vn/media/2024/9/27/minh-hon-500_1727429489854.jpg',
-        slug: 'kkk-dsfsdf-werer',
-        status: 'imax',
-    }
-    
-]
+
 
 const NavBar = () => {
   const [currentStatus, setCurrentStatus] = useState(
     titleList[0].value
   );
+  const [movies, setMovies] = useState()
+
+  useEffect(() => {
+    const fecthGetListMovie = async() => {
+      const movies = await getListMovie(currentStatus)
+
+      setMovies(movies.data)
+    }
+
+    fecthGetListMovie()
+  }, [currentStatus])
 
   return (
     <div className="w-main mx-auto mt-10">
@@ -78,7 +67,7 @@ const NavBar = () => {
       </div>
 
       <MovieContainer
-        data={movies.filter((item) => item.status === currentStatus)}
+        data={movies}
       />
     </div>
   );

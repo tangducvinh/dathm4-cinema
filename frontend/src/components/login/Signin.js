@@ -142,7 +142,13 @@ const SignIn = (props) => {
   }, [dateValue]);
 
   const onSubmit = (data) => {
-    console.log(data)
+    if (statusLogin === 'signin') {
+      // signin here
+      console.log(data)
+    } else if (statusLogin === 'signup') {
+      // signup here
+      console.log(data)
+    }
   };
 
   const handleStatusLogin = (e) => {
@@ -164,7 +170,7 @@ const SignIn = (props) => {
 
         <p className="text-center text-red-500 mt-1">{message}</p>
 
-        <form className="mt-5" onSubmit={onSubmit}>
+        <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
           {dataForm.map((item, index) => (
             <InputLogin
               key={item.label}
@@ -182,7 +188,7 @@ const SignIn = (props) => {
             />
           ))}
 
-          {statusLogin === "signup" && (
+          {/* {statusLogin === "signup" && (
             <div className="flex items-center gap-3 mt-3">
               {dataRadioButton.map((item) => (
                 <InputRadio
@@ -194,9 +200,9 @@ const SignIn = (props) => {
                 />
               ))}
             </div>
-          )}
+          )} */}
 
-          {statusLogin === "signup" && (
+          {/* {statusLogin === "signup" && (
             <div onClick={(e) => e.stopPropagation()} className="relative">
               <label className="text-[#777777] text-[12px]">Ngày sinh</label>
               <input
@@ -238,7 +244,7 @@ const SignIn = (props) => {
                 />
               )}
             </div>
-          )}
+          )} */}
 
           {statusLogin === "signup" && (
             <div className="flex items-start gap-2 mt-6">
