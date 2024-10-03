@@ -3,8 +3,8 @@ const JwtService = require("../services/JwtService");
 
 const registerUser = async (req, res) => {
   try {
-    const { name, password, email } = req.body;
-    if (!name || !password || !email) {
+    const { fullName, password, email } = req.body;
+    if (!fullName || !password || !email) {
       return res.status(200).json({
         status: "ERR",
         msg: "The input is required",
