@@ -11,13 +11,13 @@ const hashPassword = (password) =>
 
 const registerUser = (newUser) => {
   return new Promise(async (resolve, reject) => {
-    const { name, password, email } = newUser;
+    const { fullName, password, email } = newUser;
     try {
       const response = await db.User.findOrCreate({
         where: { email },
         defaults: {
           email,
-          name,
+          name: fullName,
           password: hashPassword(password),
           role: "3",
           id: v4(),

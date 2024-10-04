@@ -10,6 +10,13 @@ import { ClipLoader } from "react-spinners";
 import InputLogin from "./InputLogin";
 import InputRadio from "./InputRadio";
 import HeaderLogin from "./HeaderLogin";
+import * as apiUser from "../../apis/apiUser";
+import { useMutationHooks } from "../../hooks/useMutationHook";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import { useDispatch } from "react-redux";
+import { updateUser } from "../../redux/slices/userSlice";
 
 const dataSignIn = [
   {
@@ -106,6 +113,8 @@ const dataRadioButton = [
 ];
 
 const SignIn = (props) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { onCloseLogin, statusLogin } = props;
   const {
     register,
@@ -123,9 +132,14 @@ const SignIn = (props) => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const mutation = useMutationHooks((data) => {
+    const res = apiUser.apiLogin(data);
+    return res;
+  });
+
   useEffect(() => {
     setMessage("");
-    if (statusLogin == "signin") {
+    if (statusLogin === "signin") {
       setDataForm(dataSignIn);
     } else {
       setDataForm(dataSignUp);
@@ -141,18 +155,47 @@ const SignIn = (props) => {
     }
   }, [dateValue]);
 
-  const onSubmit = (data) => {
-    if (statusLogin === 'signin') {
-      // signin here
-      console.log(data)
-    } else if (statusLogin === 'signup') {
+  const { data, isSuccess, isError } = mutation;
+  useEffect(() => {
+    const response = data;
+    if (response) {
+      if (response?.status === "OK") {
+        localStorage.setItem(
+          "access_token",
+          JSON.stringify(response?.access_token)
+        );
+        if (response?.access_token) {
+          const decoded = jwtDecode(response?.access_token);
+          if (decoded?.id) {
+            handleGetDetailUser(decoded?.id, response?.access_token);
+          }
+        }
+
+        Swal.fire("Congratulation", response.msg, "success").then(() => {
+          navigate("/");
+        });
+      } else {
+        Swal.fire("Oops", response.msg, "error");
+      }
+    }
+  }, [isError, isSuccess]);
+
+  const handleGetDetailUser = async (id, token) => {
+    const res = await apiUser.getDetailUser(id, token);
+    dispatch(updateUser({ ...res.data }));
+  };
+
+  const onSubmit = async (data) => {
+    if (statusLogin === "signin") {
+      await mutation.mutate(data);
+    } else if (statusLogin === "signup") {
       // signup here
-      console.log(data)
+      const response = await apiUser.apiRegister(data);
     }
   };
 
   const handleStatusLogin = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (statusLogin === "signin") {
       onCloseLogin("signup");
     } else {

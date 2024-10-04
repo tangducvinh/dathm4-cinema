@@ -1,20 +1,49 @@
-import axios from 'axios'
+import axios from "axios";
 
-export const userRegister = async (data) => {
-    const response = await fetch(`http://localhost:5000/api/user/sign-up`, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      });
+export const axiosJWT = axios.create();
 
-    return response.json()
-}
+export const apiRegister = async (data) => {
+  // console.log(data);
+  const res = await axios.post(
+    `${process.env.REACT_APP_SERVER_URL}/api/user/sign-up`,
+    data
+  );
+  return res.data;
+};
 
-export const userLogin = async (data) => {
-  const response = await axios.post("http://localhost:5000/api/user/sign-in", data)
+export const apiLogin = async (data) => {
+  const res = await axios.post(
+    `${process.env.REACT_APP_SERVER_URL}/api/user/sign-in`,
+    data
+  );
+  return res.data;
+};
 
-  return response.data
-}
+export const getDetailUser = async (id, access_token) => {
+  const res = await axiosJWT.get(
+    `${process.env.REACT_APP_SERVER_URL}/api/user/detail-user/${id}`,
+    {
+      headers: {
+        token: `Bearer ${access_token}`,
+      },
+    }
+  );
+  return res.data;
+};
+
+export const refreshToken = async () => {
+  const res = await axios.post(
+    `${process.env.REACT_APP_SERVER_URL}/api/user/refresh-token`,
+    {
+      withCredentials: true,
+    }
+  );
+  return res.data;
+};
+
+export const logOutUser = async () => {
+  const res = await axios.post(
+    `${process.env.REACT_APP_SERVER_URL}/api/user/log-out`
+  );
+  return res.data;
+};
