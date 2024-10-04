@@ -1,12 +1,13 @@
 const { where } = require("sequelize");
 const db = require("../models");
 
-const getAllShow = () => {
+const getAllShow = (movieId, date) => {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await db.Show.findAll({
         where: {
-          idMovie: "7c440aee-6cf7-4f1d-8e60-cb5a72c4dc6b",
+          idMovie: movieId,
+          date: `${date}T00:00:00.000Z`,
         },
         attributes: { exclude: ["createdAt", "updatedAt"] },
         include: [
@@ -19,9 +20,6 @@ const getAllShow = () => {
                 model: db.Cinema,
                 as: "cinemahalls",
                 attributes: { exclude: ["createdAt", "updatedAt"] },
-                where: {
-                  id: "1",
-                },
                 include: [
                   {
                     model: db.City,
@@ -31,6 +29,11 @@ const getAllShow = () => {
                 ],
               },
             ],
+          },
+          {
+            model: db.Movie,
+            as: "movieshows",
+            attributes: ["slug"],
           },
         ],
       });
@@ -64,6 +67,10 @@ const getDetailShow = (sid) => {
                 attributes: { exclude: ["createdAt", "updatedAt"] },
               },
             ],
+          },
+          {
+            model: db.Movie,
+            as: "movieshows",
           },
         ],
       });
