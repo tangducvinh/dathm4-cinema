@@ -1,11 +1,10 @@
-
 import { useState, useEffect } from "react";
 import moment from "moment";
 
 import ItemDate from "./ItemDate";
 import { convertDay } from "../ultis/covertDay";
 import Schedule from "./Schedule";
-
+import { getListShow } from "../../apis/apiShow";
 
 const NavBarDate = ({ listCities, movieId }) => {
   const [dateChoose, setDateChoose] = useState(0);
@@ -19,7 +18,7 @@ const NavBarDate = ({ listCities, movieId }) => {
   useEffect(() => {
     const array = [];
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
       const now = new Date();
       const current = new Date(now.setDate(now.getDate() + i));
       array.push({
@@ -31,56 +30,43 @@ const NavBarDate = ({ listCities, movieId }) => {
     setDataDate(array);
   }, []);
 
-  // handle filter cinema follow city
-//   useEffect(() => {
-//     const fetchListCinema = async () => {
-//       const listCinemas = await apiCinema.getListCinema(currentCity);
+  // console.log(moment(dataDate[dateChoose].date).format("yyyy-MM-DD"));
+  // console.log(movieId);
 
-//       setListCinemas(listCinemas);
-//     };
-//     if (currentCity === 0) {
-//       setCurrentCinema(0);
-//     }
+  useEffect(() => {
+    const fetchListShow = async () => {
+      const response = await getListShow({
+        movieId,
+        date: moment(dataDate[dateChoose]?.date).format("yyyy-MM-DD"),
+      });
 
-//     fetchListCinema();
-//   }, [currentCity]);
+      const listIdCinema = [];
 
-  // handle search show follow condition
-//   const fetchListShow = async (data: IShowSearch) => {
-//     console.log(data);
-//     const response = await apiShow.getListShow(data);
+      // get list distinct cinemaId
+      response?.data?.forEach((item) => {
+        if (
+          !listIdCinema.some(
+            (cinemaId) => cinemaId === item.cinemahallshows.cinemahalls.id
+          )
+        ) {
+          listIdCinema.push(item.cinemahallshows.cinemahalls.id);
+        }
+      });
 
-//     let newArray: number[] = [];
+      // filter show follow cinema
+      const newData = [];
+      listIdCinema.forEach((item) => {
+        const a = response?.data?.filter(
+          (subItem) => subItem.cinemahallshows.cinemahalls.id === item
+        );
+        newData.push(a);
+      });
 
-//     response.forEach((item: { cinemaId: number }) => {
-//       if (!newArray?.some((check) => check === item.cinemaId)) {
-//         newArray.push(item.cinemaId);
-//       }
-//     });
+      setDataSchedule(newData);
+    };
 
-//     let newData: [][] = [];
-//     newArray.forEach((item) => {
-//       let a = response.filter(
-//         (value: { cinemaId: number }) => value.cinemaId === item
-//       );
-//       newData.push(a);
-//     });
-
-//     setDataSchedule(newData);
-//   };
-
-//   useEffect(() => {
-//     const data: IShowSearch = {
-//       date:
-//         moment(dataDate[dateChoose]?.date).format("yyyy/MM/DD") ||
-//         moment(new Date()).format("yyyy/MM/DD"),
-//       movieId,
-//       cityId: currentCity,
-//       cinemaId: currentCinema,
-//     };
-
-//     fetchListShow(data);
-//   }, [dateChoose, movieId, currentCity, currentCinema]);
+    fetchListShow();
+  }, []);
 
   return (
     <div>
@@ -97,7 +83,7 @@ const NavBarDate = ({ listCities, movieId }) => {
             />
           ))}
         </div>
-        <div className="flex items-center gap-2">
+        {/* <div className="flex items-center gap-2">
           <select
             onChange={(e) => setCurrentCity(Number(e.target.value))}
             id="countries"
@@ -123,7 +109,7 @@ const NavBarDate = ({ listCities, movieId }) => {
               </option>
             ))}
           </select>
-        </div>
+        </div> */}
       </div>
 
       {dataSchedule.length === 0 ? (

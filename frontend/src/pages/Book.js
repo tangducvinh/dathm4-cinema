@@ -105,7 +105,7 @@ const Book = () => {
 
           <ContentMovie overview={movie?.description} />
 
-          <Show movieId={"1"} />
+          <Show movieId={movie?.id} />
         </div>
         <div className="flex-3">
           <ShowingMovie data={moviesShowing} />
