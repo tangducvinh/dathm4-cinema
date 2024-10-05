@@ -2,7 +2,7 @@ const db = require("../models");
 const bcrypt = require("bcrypt");
 const movie = require("../data/movie.json");
 const moviesoon = require("../data/moviesoon.json");
-const movieFake = require("../data/movieFake.json")
+const movieFake = require("../data/movieFake.json");
 const func = require("../utils/func");
 
 const dataBody = movieFake;
@@ -219,31 +219,34 @@ const insert = () => {
 // };
 
 // insert show
-const insert = () => {
-  return new Promise(async (resolve, reject) => {
-    try {
-      let rap = [
-        "137d9dd1-94e9-4908-b66a-6b078c493710",
-        "9d0852f0-99ce-4ad6-9bbb-9c02b2d8e1f4",
-        "addeb69c-6344-4920-a6f2-52aa9191599b",
-      ];
-      let plus = 0;
-      for (var k = 0; k < rap.length; k++) {
-        for (var i = 1; i <= 31; i++) {
-          let showId = v4();
-          await db.Show.create({
-            id: showId,
-            date: `2024-10-${i < 10 ? "0" + i : i}T00:00:00.000Z`,
-            timeStart: `2024-10-${i < 10 ? "0" + i : i}T0${
-              2 + plus
-            }:00:00.000Z`,
-            timeEnd: `2024-10-${i < 10 ? "0" + i : i}T0${4 + plus}:00:00.000Z`,
-            idMovie: "1a3ede24-6bc2-4700-a937-8045dc0adb50",
-            idCinemaHall: rap[k],
-          });
-        }
-        plus = plus + 3;
-      }
+// const insert = () => {
+//   return new Promise(async (resolve, reject) => {
+//     try {
+//       let rap = [
+//         "137d9dd1-94e9-4908-b66a-6b078c493710",
+//         "9d0852f0-99ce-4ad6-9bbb-9c02b2d8e1f4",
+//         "addeb69c-6344-4920-a6f2-52aa9191599b",
+//       ];
+//       let plus = 0;
+//       for (var k = 0; k < rap.length; k++) {
+//         for (var i = 1; i <= 31; i++) {
+//           let showId = v4();
+//           await db.Show.create({
+//             id: showId,
+//             date: `2024-10-${i < 10 ? "0" + i : i}T00:00:00.000Z`,
+//             timeStart: `2024-10-${i < 10 ? "0" + i : i}T0${
+//               2 + plus
+//             }:00:00.000Z`,
+//             timeEnd: `2024-10-${i < 10 ? "0" + i : i}T0${4 + plus}:00:00.000Z`,
+//             idMovie: "1a3ede24-6bc2-4700-a937-8045dc0adb50",
+//             idCinemaHall: rap[k],
+//           });
+//         }
+//         plus = plus + 3;
+//       }
+//     }
+//   }
+// }
 
 //       resolve("done");
 //     } catch (error) {
