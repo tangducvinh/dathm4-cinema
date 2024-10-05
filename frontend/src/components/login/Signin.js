@@ -66,17 +66,17 @@ const dataSignUp = [
     textLength: "Số lượng kí tự không quá 200",
     textRegex: "Vui lòng nhập đúng định dạng email",
   },
-  {
-    label: "Số điện thoại",
-    type: "text",
-    placeholder: "Nhập Số điện thoại",
-    required: true,
-    name: "phone",
-    maxLength: 10,
-    regex: /^/,
-    textLength: "Số điện thoại phải có 10 số",
-    textRegex: "",
-  },
+  // {
+  //   label: "Số điện thoại",
+  //   type: "text",
+  //   placeholder: "Nhập Số điện thoại",
+  //   required: true,
+  //   name: "phone",
+  //   maxLength: 10,
+  //   regex: /^/,
+  //   textLength: "Số điện thoại phải có 10 số",
+  //   textRegex: "",
+  // },
   {
     label: "Mật khẩu",
     type: "password",
@@ -172,6 +172,7 @@ const SignIn = (props) => {
         }
 
         Swal.fire("Congratulation", response.msg, "success").then(() => {
+          onCloseLogin("null");
           navigate("/");
         });
       } else {
@@ -191,6 +192,14 @@ const SignIn = (props) => {
     } else if (statusLogin === "signup") {
       // signup here
       const response = await apiUser.apiRegister(data);
+      console.log("res ", response);
+      if (response.status === "OK") {
+        Swal.fire("Congratulation", response.msg, "success").then(() => {
+          onCloseLogin("signin");
+        });
+      } else if (response.status === "ERR") {
+        Swal.fire("Error", response.msg, "error");
+      }
     }
   };
 
