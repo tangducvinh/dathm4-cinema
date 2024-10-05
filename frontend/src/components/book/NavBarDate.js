@@ -40,6 +40,8 @@ const NavBarDate = ({ listCities, movieId }) => {
         date: moment(dataDate[dateChoose]?.date).format("yyyy-MM-DD"),
       });
 
+      console.log({ response });
+
       const listIdCinema = [];
 
       // get list distinct cinemaId
@@ -66,7 +68,9 @@ const NavBarDate = ({ listCities, movieId }) => {
     };
 
     fetchListShow();
-  }, []);
+  }, [movieId]);
+
+  console.log(dataSchedule);
 
   return (
     <div>

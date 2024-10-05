@@ -95,8 +95,6 @@ const Book = () => {
     localStorage.removeItem('currentShow');
   }, [])
 
-  console.log({ movie, moviesShowing });
-
   if (!movie) return <Loading />;
 
   return (

@@ -3,6 +3,7 @@ const ShowService = require("../services/ShowService");
 const getAllShow = async (req, res) => {
   try {
     const { movieId, date, cinemaId } = req.query;
+    console.log(req.query);
     const response = await ShowService.getAllShow(movieId, date, cinemaId);
     return res.status(200).json(response);
   } catch (error) {

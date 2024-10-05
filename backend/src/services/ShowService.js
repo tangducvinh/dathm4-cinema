@@ -54,10 +54,10 @@ const getAllShow = (movieId, date, cinemaId) => {
       if (date) query.date = `${date}T00:00:00.000Z`;
       if (cinemaId) query["$cinemahallshows.cinemahalls.id$"] = cinemaId;
 
+      console.log(query);
+
       const response = await db.Show.findAll({
-        where: {
-          idMovie: "7c440aee-6cf7-4f1d-8e60-cb5a72c4dc6b",
-        },
+        where: query,
         attributes: { exclude: ["createdAt", "updatedAt"] },
         include: [
           {
@@ -70,9 +70,6 @@ const getAllShow = (movieId, date, cinemaId) => {
                 model: db.Cinema,
                 as: "cinemahalls",
                 attributes: { exclude: ["createdAt", "updatedAt"] },
-                where: {
-                  id: "1",
-                },
                 include: [
                   {
                     model: db.City,
