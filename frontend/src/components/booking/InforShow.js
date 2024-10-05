@@ -1,6 +1,8 @@
 import moment from "moment";
 import { memo } from "react";
 
+import { convertDay } from "../ultis/covertDay";
+
 const InforShow = ({
   poster,
   name,
@@ -40,7 +42,7 @@ const InforShow = ({
           </h2>
         )}
 
-        {/* {timeStart && (
+        {timeStart && (
           <p className="text-[18px] mt-2 text-normal">
             Suất:{" "}
             <span className="font-semibold">
@@ -51,7 +53,7 @@ const InforShow = ({
               {moment(timeStart).format("DD/MM/yyyy")}
             </span>
           </p>
-        )} */}
+        )}
 
         {/* {selectSeats && selectSeats?.length !== 0 && (
           <div className="flex items-start text-normal pt-5 pb-3 justify-between text-[16px] mt-4 border-t-gray-400 border-dashed border-t-2">

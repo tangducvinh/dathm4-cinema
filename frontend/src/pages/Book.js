@@ -91,12 +91,16 @@ const Book = () => {
     fetchGetListMovie();
   }, [slug]);
 
+  useEffect(() => {
+    localStorage.removeItem('currentShow');
+  }, [])
+
   console.log({ movie, moviesShowing });
 
   if (!movie) return <Loading />;
 
   return (
-    <>
+    <div className="pb-[50px]">
       <WatchTrailer backdrop={movie?.backDrop} keyVideo={movie?.trailer} />
 
       <div className="flex mx-auto w-main gap-6">
@@ -111,7 +115,7 @@ const Book = () => {
           <ShowingMovie data={moviesShowing} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

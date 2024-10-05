@@ -6,7 +6,7 @@ import IntroduceText from '../components/home/IntroduceText'
 
 const Home = () => {
     return (
-        <div>
+        <div className='pb-[50px]'>
             <Slide />
 
             <NavBar></NavBar>

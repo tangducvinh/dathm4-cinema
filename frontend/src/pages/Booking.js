@@ -1,9 +1,11 @@
 import ChangeShow from "../components/booking/ChangeShow";
 import { useEffect, useState } from "react";
+import moment from "moment";
 
 import { getDetailShow } from "../apis/apiShow";
 import MapSeat from "../components/booking/MapSeat";
 import InforShow from "../components/booking/InforShow";
+import Loading from '../components/common/Loading'
 
 const Booking = () => {
   const [currentShow, setCurrentShow] = useState();
@@ -23,25 +25,24 @@ const Booking = () => {
       setDetailShow(response.data);
     };
 
-    fetchDetailShow();
+    if (currentShow) fetchDetailShow();
   }, [currentShow]);
 
   // console.log(detailShow?.cinemahallshows.id);
-  console.log(detailShow);
 
   return (
-    <div className="bg-gray-200">
+    <div className="bg-gray-200 pb-[100px]">
       <div className="w-main flex mx-auto gap-6">
         <div className="flex-7">
-          <ChangeShow />
+          <ChangeShow setCurrentShow={setCurrentShow} currentShow={currentShow} movieId={detailShow?.idMovie} cinemaId={detailShow?.cinemahallshows.idCinema} date={moment(detailShow?.timeStart).format('yyyy-MM-DD')}/>
           <MapSeat
-            roomId={detailShow?.cinemahallshows.id}
+            roomId={detailShow?.cinemahallshows?.id}
             row={detailShow?.cinemahallshows?.row}
             column={detailShow?.cinemahallshows?.col}
           />
         </div>
         <div className="flex-4">
-          <InforShow />
+          <InforShow cinemaName={detailShow?.cinemahallshows?.cinemahalls?.name} roomName={detailShow?.cinemahallshows?.name} poster={detailShow?.movieshows?.poster} timeStart={detailShow?.timeStart} name={detailShow?.movieshows?.name} />
         </div>
       </div>
     </div>

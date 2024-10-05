@@ -41,13 +41,13 @@ const MapSeat = ({ roomId, row, column }) => {
       setDataListSeat(newData);
     };
 
-    fetchListSeat();
-  }, [roomId]);
+    if (roomId) fetchListSeat();
+  }, [roomId, row, column]);
 
   console.log(dataListSeat);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white p-4">
       <div className="flex justify-between">
         <div className="w-[22px] text-[#777777] text-[18px] px-2 flex flex-col-reverse ml-4">
           {listRows.slice(0, row)?.map((item) => (
