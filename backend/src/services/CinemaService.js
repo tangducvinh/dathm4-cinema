@@ -11,7 +11,6 @@ const getAllCinema = (mid, day, idCity, idCinema) => {
       if (idCity == null && idCinema == null) {
         response = await db.Cinema.findAll({
           attributes: ["id", "name"],
-          // order: [["id", "ASC"]],
           include: [
             {
               model: db.CinemaHall,
@@ -26,7 +25,7 @@ const getAllCinema = (mid, day, idCity, idCinema) => {
                     date: day,
                   },
                   attributes: ["id", "date", "timeStart", "timeEnd"],
-                  order: [["timeStart", "DESC"]],
+                  order: [["timeStart", "ASC"]],
                 },
               ],
             },
