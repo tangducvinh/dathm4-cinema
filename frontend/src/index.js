@@ -12,6 +12,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import Home from "./pages/Home";
 import Book from "./pages/Book";
+import Booking from "./pages/Booking";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/detail/:slug",
         element: <Book />,
+      },
+      {
+        path: "/booking/:slug",
+        element: <Booking />,
       },
     ],
   },

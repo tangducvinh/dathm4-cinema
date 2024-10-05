@@ -4,6 +4,7 @@ const MovieRouter = require("./MovieRouter");
 const ShowRouter = require("./ShowRouter");
 const CinemaRouter = require("./CinemaRouter");
 const ShowSeatRouter = require("./ShowSeatRouter");
+const SeatRouter = require("./SeatRouter");
 
 const initRoutes = (app) => {
   app.use("/api/user", UserRouter);
@@ -12,6 +13,7 @@ const initRoutes = (app) => {
   app.use("/api/cinema", CinemaRouter);
   app.use("/api/showseat", ShowSeatRouter);
   app.use("/api/insert", InsertRouter);
+  app.use("/api/seat", SeatRouter);
 
   return app.use("/", (req, res) => {
     res.send("server on 123");

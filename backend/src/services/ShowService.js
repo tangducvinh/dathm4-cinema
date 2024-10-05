@@ -46,15 +46,18 @@ const raw = require("body-parser/lib/types/raw");
 //   });
 // };
 
-const getAllShow = () => {
+const getAllShow = (movieId, date, cinemaId) => {
   return new Promise(async (resolve, reject) => {
     try {
+      const query = {};
+      if (movieId) query.idMovie = movieId;
+      if (date) query.date = `${date}T00:00:00.000Z`;
+      if (cinemaId) query["$cinemahallshows.cinemahalls.id$"] = cinemaId;
+
       const response = await db.Show.findAll({
         where: {
-          idMovie: "1a3ede24-6bc2-4700-a937-8045dc0adb50",
-          date: "2024-10-11T00:00:00.000Z",
+          idMovie: "7c440aee-6cf7-4f1d-8e60-cb5a72c4dc6b",
         },
-
         attributes: { exclude: ["createdAt", "updatedAt"] },
         include: [
           {
@@ -67,10 +70,9 @@ const getAllShow = () => {
                 model: db.Cinema,
                 as: "cinemahalls",
                 attributes: { exclude: ["createdAt", "updatedAt"] },
-                // where: {
-                //   id: "1",
-                // },
-
+                where: {
+                  id: "1",
+                },
                 include: [
                   {
                     model: db.City,
@@ -81,7 +83,13 @@ const getAllShow = () => {
               },
             ],
           },
+          {
+            model: db.Movie,
+            as: "movieshows",
+            attributes: ["slug"],
+          },
         ],
+        order: ["timeStart"],
       });
 
       resolve({
@@ -113,6 +121,10 @@ const getDetailShow = (sid) => {
                 attributes: { exclude: ["createdAt", "updatedAt"] },
               },
             ],
+          },
+          {
+            model: db.Movie,
+            as: "movieshows",
           },
         ],
       });

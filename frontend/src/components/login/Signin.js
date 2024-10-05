@@ -192,14 +192,6 @@ const SignIn = (props) => {
     } else if (statusLogin === "signup") {
       // signup here
       const response = await apiUser.apiRegister(data);
-      console.log("res ", response);
-      if (response.status === "OK") {
-        Swal.fire("Congratulation", response.msg, "success").then(() => {
-          onCloseLogin("signin");
-        });
-      } else if (response.status === "ERR") {
-        Swal.fire("Error", response.msg, "error");
-      }
     }
   };
 

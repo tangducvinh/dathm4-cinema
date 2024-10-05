@@ -63,7 +63,7 @@ const App = () => {
 
       <Outlet />
 
-      <div className="bg-gray-800 flex justify-center p-8 mt-10">
+      <div className="bg-gray-800 flex justify-center p-8">
         <Footer />
       </div>
     </div>
